@@ -1,7 +1,13 @@
 import React , {useState} from 'react'
 
-function Search() {
+function Search({getQuery}) {
     const [text, setText] = useState('');
+    const hand= (e)=>{
+        setText(e.target.value)
+        getQuery(e.target.value)
+    }
+       
+    
     return (
         <div>
             <form action="">
@@ -9,7 +15,7 @@ function Search() {
                 <input type="text"
                 className='form-control'
                 placeholder='Search characters'
-                onChange={(e)=> setText(e.target.value)}
+                onChange={hand}
                 />
             </form>
         </div>

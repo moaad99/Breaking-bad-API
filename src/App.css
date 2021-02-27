@@ -22,7 +22,7 @@ form{
   margin-inline:-33px ;
 }
 .container {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: auto;
   padding: 0 20px;
 }
@@ -138,3 +138,6 @@ strong {
     grid-template-columns: 1fr;
   }
 }
+
+
+  

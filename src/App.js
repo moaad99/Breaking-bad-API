@@ -7,22 +7,26 @@ import Caracteres from './components/Caracteres'
 import Search from './components/Search'
 function App() {
   const [items,setItems] = React.useState([])
+  const [data,setData] = React.useState('')
   
-
   React.useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios('https://breakingbadapi.com/api/characters')
-      console.log(result.data)
-    
-      setItems(result.data)
+   
+      axios.get(`https://breakingbadapi.com/api/characters?name=${data}`)   
+      .then(response=>{
+        setItems(response.data)
+      })
+  
     }
-     fetchItems()
-  }, [])
+  
+  , [data])
+
   return (
     <div className="App">
      <Header />
-     <Search />
+     <Search getQuery={(q)=> setData(q)} />
+     <div className="container mt-3">
      <Caracteres items={items} />
+    </div>
     </div>
   );
 }
